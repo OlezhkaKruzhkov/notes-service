@@ -14,6 +14,9 @@ public class NoteService {
     }
 
     public Note createNote(Note note) {
+        if (note.getTitle() == null || note.getTitle().trim().isEmpty()) {
+            throw new IllegalArgumentException("Title cannot be empty");
+        }
         note.setCreatedAt(LocalDateTime.now());
         note.setUpdatedAt(LocalDateTime.now());
         return noteRepository.save(note);
