@@ -1,0 +1,29 @@
+### Создать заметку (POST, ожидаем 201)
+POST http://localhost:8080/notes
+Content-Type: application/json
+
+{
+  "title": "Первая заметка",
+  "content": "Привет, это тест"
+}
+
+### Получить все (GET, ожидаем 200)
+GET http://localhost:8080/notes
+
+### Получить по id (GET, ожидаем 200; подставь свой id)
+GET http://localhost:8080/notes/1
+
+### Обновить (PUT, ожидаем 200)
+PUT http://localhost:8080/notes/1
+Content-Type: application/json
+
+{
+  "title": "Обновлённая заметка",
+  "content": "Новый текст"
+}
+
+### Удалить (DELETE, ожидаем 204)
+DELETE http://localhost:8080/notes/1
+
+### Проверить 404 (GET, ожидаем 404)
+GET http://localhost:8080/notes/999
